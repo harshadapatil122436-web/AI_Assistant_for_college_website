@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vidya Polytechnic · Concept Demo</title>
+  <!-- Font & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <span>Concept demo — capstone prototype, not affiliated with any institution</span>
+    <div>
+      <a href="#">Sitemap</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <div class="logo-mark">V</div>
+      <div class="logo-text">Vidya Polytechnic
+        <span>Diploma Engineering Institute</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#admission">Admission</a>
+      <a href="#departments">Departments</a>
+      <a href="#notices">Notices</a>
+      <a href="#faq">FAQ</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a href="#" class="nav-cta">Apply now</a>
+  </header>
+
+  <!-- DISCLOSURE BANNER -->
+  <div class="disclosure">This is a student capstone concept demo. All content is sample data and is not affiliated with any real institution.</div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Get accurate answers to your admission and academic questions, instantly.</h1>
+        <p>The student assistant answers questions using the institute's own admission process, fee structure, and notices — and shows the exact document each answer came from.</p>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="toggleChat(true)">Ask the assistant</button>
+          <button class="btn-secondary">View admission process</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-head">Student assistant — sample conversation</div>
+        <div class="chat-preview">
+          <div class="bubble q">Last date to submit the scholarship form?</div>
+          <div class="bubble a">Scholarship forms for 2025-26 are due by 20 August.
+            <span class="src">Source: Scholarship Notice 2025-26.pdf, page 1</span>
+          </div>
+          <div class="bubble q">What documents do I need for admission?</div>
+          <div class="bubble a">SSC marksheet, leaving certificate, caste certificate (if applicable), and 4 passport photographs.
+            <span class="src">Source: Documents Required.pdf, page 1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSION -->
+  <section id="admission">
+    <div class="section-head">
+      <h2>Admission process</h2>
+      <div class="section-sub">The assistant can answer detailed questions on any of these steps, including eligibility and deadlines.</div>
+    </div>
+    <div class="steps">
+      <div class="step-card"><div class="step-num">Step 1</div><h3>Check eligibility</h3><p>SSC pass with the required percentage in relevant subjects, as per current admission norms.</p></div>
+      <div class="step-card"><div class="step-num">Step 2</div><h3>Gather documents</h3><p>Marksheet, leaving certificate, category certificate, photographs, and Aadhaar copy.</p></div>
+      <div class="step-card"><div class="step-num">Step 3</div><h3>Apply through CAP</h3><p>Register on the centralized admission portal and select your preferred branches.</p></div>
+      <div class="step-card"><div class="step-num">Step 4</div><h3>Confirm your seat</h3><p>Report to the institute with original documents within the confirmation window.</p></div>
+    </div>
+  </section>
+
+  <!-- DEPARTMENTS (alt background) -->
+  <section class="alt" id="departments">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Departments offered</h2>
+        <div class="section-sub">Sample content — replace with your institute's actual departments.</div>
+      </div>
+      <div class="dept-grid">
+        <div class="dept-card"><h3>Computer Engineering</h3><p>3-year diploma</p></div>
+        <div class="dept-card"><h3>Mechanical Engineering</h3><p>3-year diploma</p></div>
+        <div class="dept-card"><h3>Electrical Engineering</h3><p>3-year diploma</p></div>
+        <div class="dept-card"><h3>Civil Engineering</h3><p>3-year diploma</p></div>
+        <div class="dept-card"><h3>Electronics and Telecommunication</h3><p>3-year diploma</p></div>
+        <div class="dept-card"><h3>Mechatronics Engineering</h3><p>3-year diploma</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICES -->
+  <section id="notices">
+    <div class="section-head">
+      <h2>Recent notices</h2>
+      <div class="section-sub">These are the documents the assistant retrieves its answers from.</div>
+    </div>
+    <div class="notice-list">
+      <div class="notice-row"><span class="notice-date">20 Aug 2025</span><span class="notice-title">Scholarship notice for 2025-26 academic year</span><span class="notice-tag">Scholarship</span></div>
+      <div class="notice-row"><span class="notice-date">10 Aug 2025</span><span class="notice-title">First year institute-level admission and vacant seats</span><span class="notice-tag">Admission</span></div>
+      <div class="notice-row"><span class="notice-date">27 Jul 2025</span><span class="notice-title">Exam form submission schedule, winter term</span><span class="notice-tag">Examination</span></div>
+      <div class="notice-row"><span class="notice-date">05 Jul 2025</span><span class="notice-title">Fee structure revision for incoming batch</span><span class="notice-tag">Fees</span></div>
+    </div>
+  </section>
+
+  <!-- FAQ (alt background) -->
+  <section class="alt" id="faq">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Frequently asked questions</h2>
+        <div class="section-sub">Click to expand, or ask the assistant directly for anything not listed here.</div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Is lateral entry available after a relevant vocational course? <span class="faq-plus">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Yes, lateral entry to second year is available for eligible vocational and ITI backgrounds, subject to seat availability.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Are scholarships available for reserved categories? <span class="faq-plus">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Yes, government scholarship schemes apply per category. Check the current scholarship notice for deadlines and required forms.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Can I change branch after first year? <span class="faq-plus">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Branch change requests are considered at the end of first year, subject to seat vacancy and merit.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="logo">
+        <div class="logo-mark" style="background:var(--white);color:var(--navy-dark);">V</div>
+        <div class="logo-text" style="color:var(--white);">Vidya Polytechnic<span style="color:#8FA3BC;">Concept demo</span></div>
+      </div>
+      <div class="footer-note">This is a capstone concept demo exploring RAG-based student assistants. It is not affiliated with, and does not represent, any real institution. All content shown is sample data.</div>
+    </div>
+  </footer>
+
+  <!-- CHAT BUTTON & PANEL -->
+  <button class="chat-bubble" onclick="toggleChat()" aria-label="Open assistant">?</button>
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-head">
+      <div>
+        <div class="chat-head-title">Student assistant</div>
+        <div class="chat-head-sub">Answers grounded in institute documents</div>
+      </div>
+      <div class="chat-close" onclick="toggleChat(false)">Close</div>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="bubble a">Hello. Ask me about admission, fees, departments, or notices.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" placeholder="Ask a question..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button onclick="sendChat()">Send</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
