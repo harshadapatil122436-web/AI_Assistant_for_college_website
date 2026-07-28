@@ -1,42 +1,18 @@
-import openai
-import pinecone
-from typing import List, Dict
-from app.config import Config
-
-# Initialize Pinecone
-pinecone.init(
-    api_key=Config.PINECONE_API_KEY,
-    environment=Config.PINECONE_ENVIRONMENT
-)
-index = pinecone.Index(Config.PINECONE_INDEX)
-
-def retrieve_documents(query: str, top_k: int = 5) -> List[Dict]:
-    """Retrieve relevant documents based on query"""
+from openai import OpenAI
+client = OpenAI(api_key=Config.OPENAI_API_KEY)
+...
     try:
-        # Generate query embedding
-        response = openai.Embedding.create(
-            input=[query],
-            model=Config.EMBEDDING_MODEL
+        response = client.chat.completions.create(
+            model=Config.LLM_MODEL,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            temperature=0.3,
+            max_tokens=500
         )
-        query_embedding = response['data'][0]['embedding']
-        
-        # Query Pinecone
-        results = index.query(
-            vector=query_embedding,
-            top_k=top_k,
-            include_metadata=True
-        )
-        
-        documents = []
-        for match in results['matches']:
-            documents.append({
-                "text": match['metadata'].get('text', ''),
-                "source": match['metadata'].get('source', 'Unknown'),
-                "page": match['metadata'].get('page', 'N/A'),
-                "score": match['score']
-            })
-        
-        return documents
+        answer = response.choices[0].message.content
+        return answer, sources
     except Exception as e:
-        print(f"Retrieval error: {e}")
-        return []
+        print(f"Generation error: {e}")
+        return "I'm having trouble generating a response. Please try again later.", []
