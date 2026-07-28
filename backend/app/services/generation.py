@@ -35,9 +35,8 @@ def generate_response(query: str, documents: List[Dict]) -> Tuple[str, List[Dict
 Question: {query}
 
 Answer based on the context above. Use [Source X] to cite sources."""
-    
     try:
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model=Config.LLM_MODEL,
             messages=[
                 {"role": "system", "content": system_prompt},
@@ -46,10 +45,9 @@ Answer based on the context above. Use [Source X] to cite sources."""
             temperature=0.3,
             max_tokens=500
         )
-        
-        answer = response['choices'][0]['message']['content']
+        answer = response.choices[0].message.content
         return answer, sources
-        
     except Exception as e:
         print(f"Generation error: {e}")
         return "I'm having trouble generating a response. Please try again later.", []
+    
